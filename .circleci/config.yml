@@ -27,4 +27,10 @@ workflows:
   test_and_build:
     jobs:
       - test
-      - deploy
+      - deploy:
+        requires:
+          - test
+        filters:
+          branches:
+            only:
+              - production
